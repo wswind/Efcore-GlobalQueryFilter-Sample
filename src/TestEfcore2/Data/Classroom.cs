@@ -2,7 +2,7 @@
 
 namespace TestEfcore.Data
 {
-    public class Classroom
+    public class Classroom : ISoftDelete
     {
         public int Id { get; set; }
         public string Name { get; set; }

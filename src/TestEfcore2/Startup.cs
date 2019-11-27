@@ -22,7 +22,11 @@ namespace TestEfcore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //services.AddDbContext<DefaultDbContext>(options => { });
+            //services.AddDbContext<DefaultDbContext>();
+            services.AddHttpContextAccessor();
             services.AddDbContext<DefaultDbContext>(opt => opt.UseSqlServer("Server=.;Database=Ef_Tests;Trusted_Connection=True;"));
+            services.AddScoped<ITenantProvider, FileTenantProvider>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
